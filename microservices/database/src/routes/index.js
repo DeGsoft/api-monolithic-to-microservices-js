@@ -22,4 +22,16 @@ router.post("/:model", validateModel, async (req, res) => {
     res.status(201).json(response);
 });
 
+router.put("/:model/:id", validateModel, async (req, res) => {
+  const { model, id } = req.params;
+  const response = await store[model].update(id, req.body);
+  res.status(204).json(response);
+});
+
+router.delete("/:model/:id", validateModel, async (req, res) => {
+  const { model, id } = req.params;
+  const response = await store[model].remove(id);
+  res.status(202).json(response);
+});
+
 module.exports = router;
