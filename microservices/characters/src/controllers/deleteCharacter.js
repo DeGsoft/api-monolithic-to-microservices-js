@@ -2,7 +2,7 @@ const Character = require("../data");
 const { response } = require("../utils");
 
 module.exports = async (req, res) => {
-  const { body } = req;
-  const newCharacter = await Character.create(body);
-  response(res, 201, newCharacter);
+  const { id } = req.params;
+  const character = await Character.remove(id);
+  response(res, 202, character);
 };
