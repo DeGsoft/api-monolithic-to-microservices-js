@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const store = require("../mongodb");
-const validateModel = require("../middlewares");
+const { validateModel } = require("../middlewares");
 
 const router = Router();
 
