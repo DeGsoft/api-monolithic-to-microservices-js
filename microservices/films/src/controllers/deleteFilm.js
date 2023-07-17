@@ -2,7 +2,7 @@ const Film = require("../data");
 const { response } = require("../utils");
 
 module.exports = async (req, res) => {
-  const { body } = req;
-  const newFilm = await Film.create(body);
-  response(res, 201, newFilm);
+  const { id } = req.params;
+  const film = await Film.remove(id);
+  response(res, 202, film);
 };
